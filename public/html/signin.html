@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,11 @@
   <link rel="icon" href="https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png" type="image/svg+xml">
   <title>Log In</title>
 </head>
+
 <body>
   <header>
     <div>
-      <img src="../assets/reddit logo.png" alt="reddit logo">
+      <a href="../index.html"><img src="../assets/reddit logo.png" alt="reddit logo"></a>
     </div>
     <div class="search">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -24,5 +26,18 @@
       <i class="fa-solid fa-user"></i>
     </div>
   </header>
+  <main>
+    <div id="form">
+      <h1>LogIn</h1>
+      <label>Email</label>
+      <input type="email" name="email" id="email">
+      <label>Password</label>
+      <input type="password" name="password" id="password">
+      <span>New to Reddit? <a href="">Sign Up</a></span>
+      <p id="error-message"></p>
+      <button type="submit">submit</button>
+    </div>
+  </main>
 </body>
+
 </html>
