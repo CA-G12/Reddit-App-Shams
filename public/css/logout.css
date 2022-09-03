@@ -55,8 +55,29 @@ header div input {
   align-items: center;
 }
 
-.login-btn,
-.signup-btn {
+.icons img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.users p {
+  font-weight: 500;
+  padding-right: 0.8rem;
+}
+
+.users span {
+  font-size: 0.7rem;
+  color: #a3a3a3;
+}
+
+.logout-btn {
   padding: 0.5rem 2rem;
   outline: 0;
   border: 0;
@@ -66,21 +87,6 @@ header div input {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  margin-right: 0.5rem;
-}
-
-.login-btn {
-  color: #1484d6;
-  background-color: #fff;
-}
-
-.signup-btn {
   background-color: #1484d6;
   color: #fff;
-}
-
-.fa-solid {
-  color: #7c7c7c;
-  font-size: 1.2rem;
-  cursor: pointer;
 }
