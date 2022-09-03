@@ -8,7 +8,13 @@
 }
 
 body {
+  width: 100%;
+  height: 100vh;
   background-color: #c6d0d8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 header {
@@ -26,6 +32,7 @@ header {
 
 header div img {
   width: 120px;
+  cursor: pointer;
 }
 
 header div input {
@@ -83,4 +90,78 @@ header div input {
   color: #7c7c7c;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#form {
+  margin-top: 4rem;
+  width: 30%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  gap: 0.5rem;
+}
+
+#form h1 {
+  align-self: center;
+  color: #FF4500;
+  font-weight: 700
+}
+
+#form input {
+  width: 100%;
+  padding: 0.6rem 2rem;
+  border-radius: 30px;
+  border: 0;
+  outline: 1px solid #FF4500;
+}
+
+#form label,
+#form span {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#form button {
+  align-self: center;
+  padding: 0.7rem 3rem;
+  outline: 0;
+  border: 0;
+  border-radius: 30px;
+  background-color: #FF4500;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#form button:hover {
+  outline: 2px solid #FF4500;
+  background-color: inherit;
+  color: #FF4500;
+}
+
+#form span a {
+  text-decoration: none;
+  color: #1484d6;
+}
+
+#form p {
+  color: #ff0000;
+  font-size: 1rem;
+  text-transform: capitalize;
 }

@@ -1,5 +1,6 @@
 BEGIN;
 
+DROP TABLE IF EXISTS users, posts, comments, votes CASCADE;
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(150) NOT NULL,
@@ -11,8 +12,10 @@ CREATE TABLE users(
 CREATE TABLE posts(
   id SERIAL PRIMARY KEY,
   content TEXT NOT NULL,
+  post_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  image_url TEXT NULLABLE DEFAULT 'https://www.redditstatic.com/icon.png'
   user_id INT,
-  FOREIGN KEY(user_id) REFERENCES users(id)
+  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments(
@@ -20,7 +23,7 @@ CREATE TABLE comments(
   content TEXT NOT NULL,
   user_id INT,
   post_id INT,
-  FOREIGN KEY(user_id) REFERENCES users(id),
+  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
   CONSTRAINT fk_post_id FOREIGN KEY(post_id) REFERENCES posts(id)
 );
 
