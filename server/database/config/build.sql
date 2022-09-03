@@ -13,7 +13,7 @@ CREATE TABLE posts(
   id SERIAL PRIMARY KEY,
   content TEXT NOT NULL,
   post_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  image_url TEXT NULLABLE DEFAULT 'https://www.redditstatic.com/icon.png'
+  image_url TEXT DEFAULT 'https://www.redditstatic.com/icon.png',
   user_id INT,
   FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
