@@ -23,7 +23,7 @@ CREATE TABLE comments(
   content TEXT NOT NULL,
   user_id INT,
   post_id INT,
-  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY(user_id) REFERENCES users(id),
   CONSTRAINT fk_post_id FOREIGN KEY(post_id) REFERENCES posts(id)
 );
 
