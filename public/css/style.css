@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #c6d0d8;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 #a3a3a3;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+header div img {
+  width: 120px;
+}
+
+header div input {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  outline: 0;
+  border: 0;
+  border: 1px solid #ff856c;
+  border-radius: 50px;
+}
+
+.search {
+  position: relative;
+  overflow: hidden;
+}
+
+.search i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #878a8c;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 0.5rem 2rem;
+  outline: 0;
+  border: 0;
+  border: 1px solid #1484d6;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-right: 0.5rem;
+}
+
+.login-btn {
+  color: #1484d6;
+  background-color: #fff;
+}
+
+.signup-btn {
+  background-color: #1484d6;
+  color: #fff;
+}
+
+.fa-solid {
+  color: #7c7c7c;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
