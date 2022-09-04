@@ -1,0 +1,10 @@
+POST http://localhost:5000/signin
+content-type: application/json
+
+{
+    "username": "mostafa balousha",
+    "email": "mostafa@gmail.com",
+    "image_url": "https://www.reddit.com/r/Re_Zero/comments/jizfrn/media_i_created_emilia_in_reddit_avatar/",
+    "password": "123456",
+    "confirm_password": "123456"
+}
