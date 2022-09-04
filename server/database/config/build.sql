@@ -5,7 +5,7 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(150) NOT NULL,
   email VARCHAR(150) UNIQUE,
-  password VARCHAR(100) NOT NULL,
+  password TEXT NOT NULL,
   image_url TEXT DEFAULT 'https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg'
 );
 
