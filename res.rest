@@ -1,10 +1,10 @@
-POST http://localhost:5000/signup
+POST http://localhost:5000/signin
 content-type: application/json
 
 {
-    "username": "mostafa6",
-    "email": "mostafa66@gmail.com",
+    "username": "Rami",
+    "email": "Rami@gmail.com",
     "image_url": "https://www.reddit.com/r/Re_Zero/comments/jizfrn/media_i_created_emilia_in_reddit_avatar/",
-    "password": "123456",
-    "confirm_password": "123456"
+    "password": "123",
+    "confirm_password":"123"
 }
