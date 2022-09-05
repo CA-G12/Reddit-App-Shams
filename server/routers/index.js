@@ -8,5 +8,7 @@ router.post('/signin', signIn);
 router.get('/home', getAllPosts);
 router.post('/post/add-post', verifyToken, addPost);
 router.get('/post/get-post', verifyToken, getUSerPost);
-router.delete('/post/delete/:id', verifyToken, deletePost)
+router.delete('/post/delete/:id', verifyToken, deletePost);
+
+
 module.exports = router;
