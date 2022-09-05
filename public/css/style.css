@@ -242,6 +242,7 @@ main {
 }
 
 #posts .big {
+  width: 100%;
   position: relative;
   display: flex;
   border-radius: 5px;
