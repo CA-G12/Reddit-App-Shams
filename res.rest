@@ -1,10 +1,7 @@
-POST http://localhost:5000/
+POST http://localhost:5000/post/get-post
 content-type: application/json
 
 {
-    "username": "Rami",
-    "email": "Rami@gmail.com",
-    "image_url": "https://www.reddit.com/r/Re_Zero/comments/jizfrn/media_i_created_emilia_in_reddit_avatar/",
-    "password": "123",
-    "confirm_password":"123"
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "post_image": "https://www.redditstatic.com/icon.png"
 }
