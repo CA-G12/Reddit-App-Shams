@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { signUp, signIn, getAllPosts, addPost, getUSerPost } = require('../controllers');
+const { signUp, signIn, getAllPosts, addPost, getUSerPost, deletePost } = require('../controllers');
 const verifyToken = require('../middlewares/verifyToken');
 
 router.post('/signup', signUp);
@@ -7,5 +7,6 @@ router.post('/signin', signIn);
 
 router.get('/home', getAllPosts);
 router.post('/post/add-post', verifyToken, addPost);
-router.get('post/get-post', verifyToken, getUSerPost);
+router.get('/post/get-post', verifyToken, getUSerPost);
+router.delete('/post/delete/:id', verifyToken, deletePost)
 module.exports = router;
