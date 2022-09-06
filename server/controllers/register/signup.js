@@ -23,14 +23,9 @@ const signUp = (req, res) => {
       }
     }).then((hashed) => signUpQuery({
       username, email, password: hashed, image_url,
-    })).then((userData) => res.send(userData))
-    .catch((error) => {
-      if (error.name === 'ValidationError') res.status(400).json({
-        status: 400,
-        msg: error.message
-      });
-      return res.status(500).json(error);
-    });
+    })).then(() => res.json({ message: "Account created successfully " }))
+    .catch((error) => res.status(error.status || 500).json({ error: error.msg || 'Something Went Wrong' }));
+
 };
 
 module.exports = signUp;

@@ -27,9 +27,8 @@ const signIn = (req, res) => {
       }).then((jwt) => {
         res.cookie('token', jwt, { httpOnly: true }).json({ message: 'Logged in successfully!' })
       })
-    }).catch(err => console.log(err))
-  // .catch((err) => res.status(err.status || 500))
-  // .json({ err: err.msg || 'Something went wrong!' });
+    })
+    .catch((err) => res.status(err.status || 500)).json({ err: err.msg || 'Something went wrong!' });
 };
 
 module.exports = signIn;
