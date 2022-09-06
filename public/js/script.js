@@ -15,8 +15,7 @@ fetch('/home', {
 }).then(res => res.json()).then(data => handleDom(data));
 
 function handleDom(data) {
-  data.forEach((ele) => {
-    console.log(ele);
+  data.reverse().forEach((ele) => {
     const bigDiv = document.createElement('div');
     bigDiv.className = 'big';
     mainContainer.appendChild(bigDiv);
