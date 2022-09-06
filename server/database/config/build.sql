@@ -6,7 +6,7 @@ CREATE TABLE users(
   username VARCHAR(150) NOT NULL,
   email VARCHAR(150) UNIQUE,
   password TEXT NOT NULL,
-  image_url TEXT DEFAULT 'https://i0.wp.com/researchictafrica.net/wp/wp-content/uploads/2016/10/default-profile-pic.jpg'
+  image_url TEXT DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPKevXJxjANQLI8UuioSqliVMY5UZhSFFWonzkGPqjEcE_zQgkzvYpvZJZeJIurcwfZkw&usqp=CAU'
 );
 
 CREATE TABLE posts(
