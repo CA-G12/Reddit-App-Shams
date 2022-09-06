@@ -162,7 +162,7 @@ main {
 
 .error-message {
   align-self: center;
-  font-weight: 600;
+  font-weight: 500;
   color: #ff0000;
   font-size: 1rem;
   text-transform: capitalize;

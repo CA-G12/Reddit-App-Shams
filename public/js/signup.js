@@ -7,7 +7,6 @@ const password = document.querySelector('#password');
 const confirmPass = document.querySelector('#confirm-password');
 const imageUrl = document.querySelector('#image');
 
-// console.log(inputs);
 
 const errormsg = document.querySelector('.error-message');
 const messageHandler = document.querySelector('.message');
@@ -32,7 +31,6 @@ submitBtn.addEventListener('click', () => {
   inputs.forEach((e) => {
     if (e.value === '') {
       e.style.outline = '2px solid red';
-      errormsg.textContent = 'You should sign up first'
     } else {
       e.style.outline = '2px solid green';
     }

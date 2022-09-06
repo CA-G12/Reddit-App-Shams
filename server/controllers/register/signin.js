@@ -25,7 +25,7 @@ const signIn = (req, res) => {
           return generateToken({ id: user.id });
         }
       }).then((jwt) => {
-        res.cookie('token', jwt, { httpOnly: true }).json({ message: 'Logged in successfully!', success: true, path: '../html/signin' })
+        res.cookie('token', jwt, { httpOnly: true }).json({ message: 'Logged in successfully!', success: true, path: '../html/feed.html' })
       }).catch((error) => res.status(error.status || 500))
       // .json({ error: error.msg })
     })
