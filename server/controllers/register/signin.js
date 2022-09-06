@@ -25,10 +25,11 @@ const signIn = (req, res) => {
           return generateToken({ id: user.id });
         }
       }).then((jwt) => {
-        res.cookie('token', jwt, { httpOnly: true }).json({ message: 'Logged in successfully!' })
-      })
+        res.cookie('token', jwt, { httpOnly: true }).json({ message: 'Logged in successfully!', success: true, path: '../html/feed.html' })
+      }).catch((error) => res.status(error.status || 500))
+      // .json({ error: error.msg })
     })
-    .catch((err) => res.status(err.status || 500)).json({ err: err.msg || 'Something went wrong!' });
+
 };
 
 module.exports = signIn;

@@ -23,7 +23,7 @@ const signUp = (req, res) => {
       }
     }).then((hashed) => signUpQuery({
       username, email, password: hashed, image_url,
-    })).then(() => res.json({ message: "Account created successfully " }))
+    })).then(() => res.json({ message: "Account created successfully" }))
     .catch((error) => res.status(error.status || 500).json({ error: error.msg || 'Something Went Wrong' }));
 
 };

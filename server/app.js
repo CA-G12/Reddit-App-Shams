@@ -16,10 +16,6 @@ app.use(router);
 app.use(express.static(join(__dirname, '..', 'public')));
 app.set('port', process.env.PORT || 5000);
 
-// app.get('/home', (req, res) => {
-//   res.sendFile(join(__dirname, '..', 'public', 'index.html'));
-// });
-
 app.get('/signup', (req, res) => {
   res.sendFile(join(__dirname, '..', 'public', 'html', 'signup.html'));
 });

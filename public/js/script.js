@@ -1,9 +1,7 @@
 const loginBtn = document.querySelector('.login-btn');
 const signupBtn = document.querySelector('.signup-btn');
 const mainContainer = document.querySelector('#posts .container');
-console.log(mainContainer);
 
-// console.log(loginBtn, signupBtn);
 loginBtn.addEventListener('click', () => {
   window.location.href = '/signin';
 });
