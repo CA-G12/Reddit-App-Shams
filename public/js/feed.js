@@ -1,3 +1,4 @@
+const mainContainer = document.querySelector('#posts .container');
 const logoutBtn = document.querySelector('.logout-btn');
 
 const logout = () => {
@@ -26,11 +27,14 @@ function profileInfo(userData) {
   accountImg.src = userData['image_url'];
 }
 
-fetch('/home').then(data => data.json()).then(response => handleDom(response));
+fetch('/home', {
+  method: 'GET',
+  headers: { 'Content-type': 'application/json' }
+}).then(data => data.json()).then(response => handleDom(response));
 
 function handleDom(response) {
+  // console.log(response);
   response.reverse().forEach((ele) => {
-    const mainContainer = document.querySelector('#posts .container')
     const bigDiv = document.createElement('div');
     bigDiv.className = 'big';
     mainContainer.appendChild(bigDiv);
@@ -108,6 +112,50 @@ function handleDom(response) {
     social.appendChild(Save);
   })
 }
+
+const addPostInput = document.querySelector('#add-post');
+const popupPanel = document.querySelector('.pop-up');
+const content = document.querySelector('#content');
+const image = document.querySelector('#img');
+const postBtn = document.querySelector('#post-btn');
+const layer = document.querySelector('.layer')
+
+addPostInput.addEventListener('click', () => {
+  popupPanel.style.display = 'flex'
+});
+
+layer.addEventListener('click', () => {
+  popupPanel.style.display = 'none'
+});
+
+
+function fetchUserPosts() {
+  fetch('/post/get-post').then(data => data.json()).then(dd => {
+    handleDom(dd)
+  })
+}
+
+postBtn.addEventListener('click', () => {
+  if (content.value !== '') {
+    fetch('/post/add-post', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      body: JSON.stringify({
+        content: content.value,
+        post_image: image.value
+      })
+    }).then(data => data.json()).then((res) => {
+      if (res.message === 'post is added') {
+        mainContainer.textContent = ''
+        fetch('/home', {
+          method: 'GET',
+          headers: { 'Content-type': 'application/json' }
+        }).then(data => data.json()).then(response => handleDom(response));
+        popupPanel.style.display = 'none';
+      }
+    })
+  }
+})
 
 
 

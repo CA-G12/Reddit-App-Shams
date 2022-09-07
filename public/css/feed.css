@@ -334,6 +334,16 @@ main {
   display: none;
 }
 
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5010;
+  background-color: #00000050;
+}
+
 .pop-up .form {
   padding: 1rem 2rem;
   display: flex;
@@ -342,6 +352,7 @@ main {
   background-color: #ffff;
   gap: 1rem;
   border-radius: 5px;
+  z-index: 5020;
 }
 
 .pop-up .form textarea {

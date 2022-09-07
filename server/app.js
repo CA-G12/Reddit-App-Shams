@@ -24,6 +24,10 @@ app.get('/signin', (req, res) => {
   res.sendFile(join(__dirname, '..', 'public', 'html', 'signin.html'));
 });
 
+app.get('/feed', (req, res) => {
+  res.sendFile(join(__dirname, '..', 'public', 'html', 'feed.html'))
+});
+
 app.use((req, res, next) => {
   res.sendFile(join(__dirname, '..', 'public', 'html', '404.html'));
 });

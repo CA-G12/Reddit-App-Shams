@@ -14,7 +14,7 @@
 <body>
   <header>
     <div>
-      <a href="../index.html"><img src="../assets/reddit logo.png" alt="reddit logo"></a>
+      <a href="./feed.html"><img src="../assets/reddit logo.png" alt="reddit logo"></a>
     </div>
     <div class="search">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -34,12 +34,13 @@
       <div class="account-img">
         <img src="../assets/profile icon.png" alt="">
       </div>
-      <input type="text" placeholder="Create post">
+      <input type="text" placeholder="Create post" id="add-post">
       <div class="pop-up">
+        <div class="layer"></div>
         <div class="form">
           <textarea name="content" id="content" cols="50" rows="10" placeholder="Add your post here..."></textarea>
-          <input type="text" name="image" id="" placeholder="Add your image here..">
-          <button id="post">Post</button>
+          <input type="text" name="image" id="img" placeholder="Add your image here..">
+          <button id="post-btn">Post</button>
         </div>
       </div>
     </section>
