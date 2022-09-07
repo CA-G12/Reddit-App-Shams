@@ -14,6 +14,20 @@ signupBtn.addEventListener('click', () => {
   window.location.href = '/signup';
 });
 
+// fetch('/signin', {
+//   method: 'POST',
+//   headers: { 'Content-type': 'application/json' },
+//   body: JSON.stringify({
+//     email: email.value,
+//     password: password.value
+//   }),
+// }).then(data => data.json()).then(res => {
+//   if (res.message === 'isLogged') {
+//     window.location.href = '/feed'
+//   }
+// })
+
+
 submit.addEventListener('click', () => {
   inputs.forEach((e) => {
     if (e.value === '') {
@@ -38,7 +52,6 @@ submit.addEventListener('click', () => {
       }),
     }).then(data => data.json())
       .then(result => {
-        console.log(result);
         if (result.success) {
           messagePara.textContent = result.message;
           messageSpan.classList.add('vanishspan');
