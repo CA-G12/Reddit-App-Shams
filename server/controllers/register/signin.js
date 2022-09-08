@@ -8,10 +8,10 @@ const signInSchema = require("../../validation/sign-in-validate");
 const validate = require("../../validation/validator");
 
 const signIn = (req, res) => {
-  const isLogged = req.cookies.token;
-  if (isLogged) {
-    res.json({ message: "isLogged" })
-  }
+  // const isLogged = req.cookies.token;
+  // if (isLogged) {
+  //   res.json({ message: "isLogged" })
+  // }
   const { email, password } = req.body;
   let user;
 
