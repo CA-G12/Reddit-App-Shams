@@ -329,6 +329,12 @@ main {
   color: #1484d6;
 }
 
+.none {
+  font-size: 1.5rem;
+  font-weight: 500;
+  align-self: center;
+}
+
 /*************************************************************/
 #popular-posts {
   margin-top: 1rem;

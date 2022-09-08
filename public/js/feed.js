@@ -17,7 +17,6 @@ logoutBtn.addEventListener('click', logout);
 fetch('/user/profile').then(data => data.json()).then(result => result.data).then(userData => profileInfo(userData))
 
 function profileInfo(userData) {
-
   const username = document.querySelector('.users p');
   username.textContent = userData['username'];
 
@@ -33,7 +32,6 @@ fetch('/home', {
 }).then(data => data.json()).then(response => handleDom(response));
 
 function handleDom(response) {
-  console.log(response);
   response.reverse().forEach((ele) => {
     const bigDiv = document.createElement('div');
     bigDiv.className = 'big';
@@ -71,12 +69,12 @@ function handleDom(response) {
     publisherInfo.className = 'publisher-info';
     postPublisher.appendChild(publisherInfo);
 
-    const userProfile = document.createElement('a');
-    userProfile.href = '/profile';
+    // const userProfile = document.createElement('a');
+    // userProfile.href = '/profile';
     const userName = document.createElement('p');
     userName.textContent = ele['username'];
-    userProfile.appendChild(userName);
-    publisherInfo.appendChild(userProfile);
+    // userProfile.appendChild(userName);
+    publisherInfo.appendChild(userName);
 
     const event = new Date(ele['post_date']);
     const postDate = document.createElement('span');
@@ -157,6 +155,14 @@ postBtn.addEventListener('click', () => {
   }
 })
 
+const userProfile = document.querySelector('.users p');
+
+userProfile.addEventListener('click', () => {
+  fetch('/user/profile').then(data => data.json()).then(result => {
+    if (result.message) window.location.href = '/profile'
+  })
+
+})
 
 
 
