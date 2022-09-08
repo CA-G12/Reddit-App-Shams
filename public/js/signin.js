@@ -25,7 +25,7 @@ signupBtn.addEventListener('click', () => {
 //   if (res.message === 'isLogged') {
 //     window.location.href = '/feed'
 //   }
-// })
+// }).catch(err => console.log(err))
 
 
 submit.addEventListener('click', () => {

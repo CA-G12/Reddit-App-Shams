@@ -276,6 +276,7 @@ main {
 }
 
 #posts .post-publisher img {
+  object-fit: contain;
   width: 30px;
   height: 30px;
 }
@@ -292,7 +293,13 @@ main {
   font-weight: 400;
 }
 
+#posts .post-publisher a {
+  text-decoration: none;
+  color: #222;
+}
+
 #posts .post-publisher i {
+  cursor: pointer;
   position: absolute;
   right: 2rem;
 }

@@ -299,6 +299,7 @@ main {
 }
 
 #posts .post-publisher img {
+  object-fit: contain;
   width: 30px;
   height: 30px;
 }
@@ -316,6 +317,7 @@ main {
 }
 
 #posts .post-publisher i {
+  cursor: pointer;
   position: absolute;
   right: 2rem;
 }

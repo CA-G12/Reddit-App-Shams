@@ -33,7 +33,7 @@ fetch('/home', {
 }).then(data => data.json()).then(response => handleDom(response));
 
 function handleDom(response) {
-  // console.log(response);
+  console.log(response);
   response.reverse().forEach((ele) => {
     const bigDiv = document.createElement('div');
     bigDiv.className = 'big';
@@ -113,6 +113,7 @@ function handleDom(response) {
   })
 }
 
+
 const addPostInput = document.querySelector('#add-post');
 const popupPanel = document.querySelector('.pop-up');
 const content = document.querySelector('#content');
@@ -129,11 +130,6 @@ layer.addEventListener('click', () => {
 });
 
 
-function fetchUserPosts() {
-  fetch('/post/get-post').then(data => data.json()).then(dd => {
-    handleDom(dd)
-  })
-}
 
 postBtn.addEventListener('click', () => {
   if (content.value !== '') {
@@ -150,7 +146,8 @@ postBtn.addEventListener('click', () => {
         fetch('/home', {
           method: 'GET',
           headers: { 'Content-type': 'application/json' }
-        }).then(data => data.json()).then(response => handleDom(response));
+        })
+          .then(data => data.json()).then(response => handleDom(response));
         popupPanel.style.display = 'none';
       }
     })
