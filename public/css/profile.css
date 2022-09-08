@@ -10,8 +10,11 @@
 body {
   display: flex;
   justify-content: center;
-  background-color: #c6d0d8;
+  flex-direction: column;
+  background-color: #dae0e6;
 }
+
+
 
 header {
   width: 100%;
@@ -103,16 +106,114 @@ header div input {
 }
 
 /*****************************************************/
+
 main {
   height: 100%;
-  width: 80%;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  padding: 8rem;
 }
 
-#create-post {
+#profile {
+  margin: 5rem 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.bg {
+  width: 100%;
+  height: 180px;
+  background-image: url('https://i.redd.it/sgf6r5easbh31.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.white-bg {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+}
+
+
+.white-bg .profile-img {
+  position: relative;
+  top: -55px;
+  margin-left: 5rem;
+  width: 150px;
+  height: 150px;
+}
+
+.white-bg .profile-img img {
+  border: 5px solid white;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.infos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.infos p {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.infos span {
+  font-size: 0.7rem;
+  color: #333;
+}
+
+.upload {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.inputfile {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+}
+
+.inputfile+label {
+  font-size: 1.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
+}
+
+.inputfile+label svg {
+  fill: #08d6d6;
+}
+
+/*************************************************************************/
+
+#create-post {
+  width: 80%;
   margin-top: 1rem;
   font-size: .9rem;
   display: flex;
@@ -150,17 +251,89 @@ main {
   outline: 1px solid #CCCC;
 }
 
+.pop-up {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  display: none;
+}
+
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5010;
+  background-color: #00000050;
+}
+
+.pop-up .form {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffff;
+  gap: 1rem;
+  border-radius: 5px;
+  z-index: 5020;
+}
+
+.pop-up .form textarea {
+  width: 100%;
+  resize: none;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 5px;
+  outline: 1px solid #CCCC;
+}
+
+.pop-up .form textarea:focus {
+  outline: 1.5px solid #CCCC;
+}
+
+.pop-up .form input {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  outline: 1px solid #CCCC;
+  border: 0;
+  border-radius: 5px;
+}
+
+.pop-up .form input:focus {
+  outline: 1.5px solid #CCCC;
+}
+
+.pop-up .form button {
+  margin-top: 2rem;
+  padding: 0.5rem 3rem;
+  background-color: #1484d6;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.pop-up .form button:hover {
+  background-color: inherit;
+  outline: 2px solid #1484d6;
+  color: #1484d6;
+}
+
+/*************************************************************/
 #popular-posts {
   margin-top: 1rem;
-  width: 100%;
+  width: 80%;
 }
-
-#popular-posts h1 {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #1a1a1b;
-}
-
 
 #popular-posts nav {
   margin-top: 1rem;
@@ -206,17 +379,22 @@ main {
   cursor: pointer;
 }
 
-/**********************************************/
+#popular-posts nav ul li p .fa-fire {
+  color: #08d6d6
+}
+
+/***************************************************************************/
 
 #posts {
   margin: 2rem 0;
-  width: 100%;
+  width: 80%;
   display: flex;
   border-radius: 10px;
   z-index: 1000;
 }
 
 #posts .container {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -333,81 +511,3 @@ main {
 }
 
 /**************************************************************/
-
-.pop-up {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000050;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5000;
-  display: none;
-}
-
-.layer {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5010;
-  background-color: #00000050;
-}
-
-.pop-up .form {
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #ffff;
-  gap: 1rem;
-  border-radius: 5px;
-  z-index: 5020;
-}
-
-.pop-up .form textarea {
-  width: 100%;
-  resize: none;
-  padding: 1rem 1.5rem;
-  border: 0;
-  border-radius: 5px;
-  outline: 1px solid #CCCC;
-}
-
-.pop-up .form textarea:focus {
-  outline: 1.5px solid #CCCC;
-}
-
-.pop-up .form input {
-  width: 100%;
-  padding: 0.8rem 1.5rem;
-  outline: 1px solid #CCCC;
-  border: 0;
-  border-radius: 5px;
-}
-
-.pop-up .form input:focus {
-  outline: 1.5px solid #CCCC;
-}
-
-.pop-up .form button {
-  margin-top: 2rem;
-  padding: 0.5rem 3rem;
-  background-color: #1484d6;
-  color: #fff;
-  border: 0;
-  outline: 0;
-  border-radius: 30px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.pop-up .form button:hover {
-  background-color: inherit;
-  outline: 2px solid #1484d6;
-  color: #1484d6;
-}
