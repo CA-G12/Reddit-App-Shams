@@ -71,9 +71,12 @@ function handleDom(response) {
     publisherInfo.className = 'publisher-info';
     postPublisher.appendChild(publisherInfo);
 
+    const userProfile = document.createElement('a');
+    userProfile.href = '/profile';
     const userName = document.createElement('p');
     userName.textContent = ele['username'];
-    publisherInfo.appendChild(userName);
+    userProfile.appendChild(userName);
+    publisherInfo.appendChild(userProfile);
 
     const event = new Date(ele['post_date']);
     const postDate = document.createElement('span');
