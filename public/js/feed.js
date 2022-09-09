@@ -1,6 +1,8 @@
 const mainContainer = document.querySelector('#posts .container');
 const logoutBtn = document.querySelector('.logout-btn');
 
+/Logout fetch/
+
 const logout = () => {
   fetch('/logout', {
     method: 'GET',
@@ -13,6 +15,7 @@ const logout = () => {
 
 logoutBtn.addEventListener('click', logout);
 
+/Fetch user profile/
 
 fetch('/user/profile').then(data => data.json()).then(result => result.data).then(userData => profileInfo(userData))
 
@@ -114,6 +117,7 @@ function handleDom(response) {
   })
 }
 
+/Add post fetch/
 
 const addPostInput = document.querySelector('#add-post');
 const popupPanel = document.querySelector('.pop-up');
@@ -161,8 +165,8 @@ userProfile.addEventListener('click', () => {
   fetch('/user/profile').then(data => data.json()).then(result => {
     if (result.message) window.location.href = '/profile'
   })
+});
 
-})
-
+/ Fetch comments /
 
 
