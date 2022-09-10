@@ -133,8 +133,8 @@ function fetchUserPosts(res) {
             setTimeout(() => {
               messageHandler.classList.remove('vanish');
               messageSpan.classList.remove('vanishspan');
-              bigDiv.style.display = 'none';
             }, 3000);
+            bigDiv.style.display = 'none';
           });
       });
 

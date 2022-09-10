@@ -12,6 +12,7 @@ const {
   getSinglePost,
   getPostComments,
   deleteComment,
+  getAllUsers
 } = require("../controllers");
 const verifyToken = require("../middlewares/verifyToken");
 
@@ -28,6 +29,8 @@ router.get("/user/profile", verifyToken, userProfile);
 
 router.post("/single-post/:id/comments", verifyToken, addComment);
 router.get("/single-post/:id/comments", getPostComments);
-router.delete("/single-post/:id/comments/:id", deleteComment)
+router.delete("/single-post/:id/comments/:id", deleteComment);
+
+router.get('/user', verifyToken, getAllUsers)
 
 module.exports = router;
