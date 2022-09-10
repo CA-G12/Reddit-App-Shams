@@ -10,6 +10,8 @@ const addCommentQuery = require("./comments/addCommentQuery");
 const getSinglePostQuery = require("./posts/getSinglePostQuery");
 const getPostCommentsQuery = require("./comments/getPostCommentsQuery");
 const deleteCommentQuery = require("./comments/deleteCommentQuery");
+const getAllUsersQuery = require("./user/getAllusers.Query");
+
 
 module.exports = {
   signUpQuery,
@@ -24,4 +26,5 @@ module.exports = {
   addCommentQuery,
   getPostCommentsQuery,
   deleteCommentQuery,
+  getAllUsersQuery
 };

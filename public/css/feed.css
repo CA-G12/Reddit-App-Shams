@@ -458,6 +458,16 @@ main {
   padding: 0.5rem 1rem;
 }
 
+.commenter {
+  width: auto;
+
+}
+
+.visitor-comment .commenter p {
+  font-size: 0.7rem;
+  padding: 0.5rem;
+}
+
 .visitor-comment i {
   color: #000;
 }

@@ -10,6 +10,7 @@ const addComment = require("./comments/addComment");
 const getSinglePost = require("./posts/getSinglePost");
 const getPostComments = require("./comments/getPostCommnets");
 const deleteComment = require("./comments/deleteComment");
+const getAllUsers = require("./user/getUsers");
 
 module.exports = {
   signUp,
@@ -24,4 +25,5 @@ module.exports = {
   addComment,
   getPostComments,
   deleteComment,
+  getAllUsers
 };

@@ -1,9 +1,9 @@
 const mainContainer = document.querySelector("#posts .container");
 const logoutBtn = document.querySelector(".logout-btn");
 
-const messageHandler = document.querySelector('.message');
-const messagePara = document.querySelector('.message p');
-const messageSpan = document.querySelector('.message span');
+const messageHandler = document.querySelector(".message");
+const messagePara = document.querySelector(".message p");
+const messageSpan = document.querySelector(".message span");
 
 /Logout fetch/;
 
@@ -121,7 +121,7 @@ function handleDom(response) {
       .then((result) => result.json())
       .then((com) => {
         comment.innerHTML = `<i class="fa-regular fa-message"></i> <span>${com.length}<span> Comments`;
-      })
+      });
     const share = document.createElement("p");
     share.innerHTML = `<i class="fa-regular fa-share-from-square"></i> Share`;
     const Save = document.createElement("p");
@@ -154,14 +154,13 @@ function handleDom(response) {
     visitorDiv.appendChild(commentInput);
 
     const sendBtn = document.createElement("button");
-    const sendIcon = document.createElement('i');
+    const sendIcon = document.createElement("i");
     sendIcon.className = "fa-regular fa-paper-plane";
     sendBtn.appendChild(sendIcon);
     visitorDiv.appendChild(sendBtn);
 
     sendBtn.addEventListener("click", () => {
-
-      if (commentInput.value !== '') {
+      if (commentInput.value !== "") {
         fetch(`/single-post/${ele.id}/comments`, {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -171,24 +170,33 @@ function handleDom(response) {
         })
           .then((data) => data.json())
           .then((x) => {
-            visitorDiv.textContent = '';
+            visitorDiv.textContent = "";
+            const imagDiv = document.createElement("div");
             const commentImg = document.createElement("img");
+            imagDiv.appendChild(commentImg);
             fetch("/user/profile")
               .then((data) => data.json())
               .then((result) => result.data)
               .then((rr) => {
                 commentImg.src = rr["image_url"];
               });
-            visitorDiv.appendChild(commentImg);
+            visitorDiv.appendChild(imagDiv);
+
+            const commenter = document.createElement("div");
+            commenter.className = "commenter";
+            const comName = document.createElement("p");
+            comName.textContent = "Name";
+            commenter.appendChild(comName);
+            visitorDiv.appendChild(commenter);
 
             const commentInput = document.createElement("input");
             commentInput.type = "text";
             commentInput.placeholder = "Write a comment...";
             commentInput.id = "comment";
-            visitorDiv.appendChild(commentInput);
+            commenter.appendChild(commentInput);
 
             const sendBtn = document.createElement("button");
-            const sendIcon = document.createElement('i');
+            const sendIcon = document.createElement("i");
             sendIcon.className = "fa-regular fa-paper-plane";
             sendBtn.appendChild(sendIcon);
             visitorDiv.appendChild(sendBtn);
@@ -215,13 +223,13 @@ function handleDom(response) {
           });
       } else {
         messagePara.textContent = "Your comment field is empty!";
-        messageSpan.classList.add('vanishspan');
-        messageHandler.classList.add('vanish');
-        messageHandler.style.backgroundColor = '#1b951b';
-        messageSpan.style.backgroundColor = '#13ff13';
+        messageSpan.classList.add("vanishspan");
+        messageHandler.classList.add("vanish");
+        messageHandler.style.backgroundColor = "#1b951b";
+        messageSpan.style.backgroundColor = "#13ff13";
         setTimeout(() => {
-          messageHandler.classList.remove('vanish');
-          messageSpan.classList.remove('vanishspan');
+          messageHandler.classList.remove("vanish");
+          messageSpan.classList.remove("vanishspan");
         }, 2000);
       }
     });
@@ -232,29 +240,38 @@ function handleDom(response) {
       visitorDiv.className = "visitor-comment";
       commentDiv.appendChild(visitorDiv);
 
+      const imagDiv = document.createElement("div");
       const commentImg = document.createElement("img");
+      imagDiv.appendChild(commentImg);
       fetch("/user/profile")
         .then((data) => data.json())
         .then((result) => result.data)
         .then((rr) => {
           commentImg.src = rr["image_url"];
         });
-      visitorDiv.appendChild(commentImg);
+      visitorDiv.appendChild(imagDiv);
+
+      const commenter = document.createElement("div");
+      commenter.style.width = "100%";
+      const comName = document.createElement("p");
+      // comName.textContent = 'test';
+      commenter.appendChild(comName);
+      visitorDiv.appendChild(commenter);
 
       const commentInput = document.createElement("input");
       commentInput.type = "text";
       commentInput.placeholder = "Write a comment...";
       commentInput.id = "comment";
-      visitorDiv.appendChild(commentInput);
+      commenter.appendChild(commentInput);
 
       const sendBtn = document.createElement("button");
-      const sendIcon = document.createElement('i');
+      const sendIcon = document.createElement("i");
       sendIcon.className = "fa-regular fa-paper-plane";
       sendBtn.appendChild(sendIcon);
       visitorDiv.appendChild(sendBtn);
 
       sendBtn.addEventListener("click", () => {
-        if (commentInput.value !== '') {
+        if (commentInput.value !== "") {
           fetch(`/single-post/${ele.id}/comments`, {
             method: "POST",
             headers: { "Content-type": "application/json" },
@@ -264,15 +281,17 @@ function handleDom(response) {
           })
             .then((data) => data.json())
             .then((x) => {
-              visitorDiv.textContent = '';
+              visitorDiv.textContent = "";
+              const imagDiv = document.createElement("div");
               const commentImg = document.createElement("img");
+              imagDiv.appendChild(commentImg);
               fetch("/user/profile")
                 .then((data) => data.json())
                 .then((result) => result.data)
                 .then((rr) => {
                   commentImg.src = rr["image_url"];
                 });
-              visitorDiv.appendChild(commentImg);
+              visitorDiv.appendChild(imagDiv);
 
               const commentInput = document.createElement("input");
               commentInput.type = "text";
@@ -281,7 +300,7 @@ function handleDom(response) {
               visitorDiv.appendChild(commentInput);
 
               const sendBtn = document.createElement("button");
-              const sendIcon = document.createElement('i');
+              const sendIcon = document.createElement("i");
               sendIcon.className = "fa-regular fa-paper-plane";
               sendBtn.appendChild(sendIcon);
               visitorDiv.appendChild(sendBtn);
@@ -291,30 +310,41 @@ function handleDom(response) {
                 visitorDiv.className = "visitor-comment";
                 commentDiv.appendChild(visitorDiv);
 
+                const imagDiv = document.createElement("div");
                 const commentImg = document.createElement("img");
+                imagDiv.appendChild(commentImg);
+
                 fetch("/user/profile")
                   .then((data) => data.json())
                   .then((result) => result.data)
                   .then((rr) => {
                     commentImg.src = rr["image_url"];
+                    comName.textContent = rr["username"];
                   });
                 visitorDiv.appendChild(commentImg);
+
+                const pp = document.createElement("div");
+                pp.className = "commenter";
+                const comName = document.createElement("p");
+                // comName.textContent = '555';
+                pp.appendChild(comName);
+                visitorDiv.appendChild(pp);
 
                 const para = document.createElement("p");
                 para.className = "myComment";
                 para.textContent = x.data.content;
-                visitorDiv.appendChild(para);
+                pp.appendChild(para);
               }
             });
         } else {
           messagePara.textContent = "Your comment field is empty!";
-          messageSpan.classList.add('vanishspan');
-          messageHandler.classList.add('vanish');
-          messageHandler.style.backgroundColor = '#1b951b';
-          messageSpan.style.backgroundColor = '#13ff13';
+          messageSpan.classList.add("vanishspan");
+          messageHandler.classList.add("vanish");
+          messageHandler.style.backgroundColor = "#1b951b";
+          messageSpan.style.backgroundColor = "#13ff13";
           setTimeout(() => {
-            messageHandler.classList.remove('vanish');
-            messageSpan.classList.remove('vanishspan');
+            messageHandler.classList.remove("vanish");
+            messageSpan.classList.remove("vanishspan");
           }, 2000);
         }
       });
@@ -331,21 +361,43 @@ function handleDom(response) {
               visitorDiv.className = "visitor-comment";
               commentDiv.appendChild(visitorDiv);
 
+              const imagDiv = document.createElement("div");
               const commentImg = document.createElement("img");
+              imagDiv.appendChild(commentImg);
+
               fetch("/user/profile")
                 .then((data) => data.json())
                 .then((result) => result.data)
                 .then((rr) => {
                   if (rr.id === comment["user_id"]) {
                     commentImg.src = rr["image_url"];
+                    comName.textContent = rr["username"];
+                  } else {
+                    fetch("/user", { method: "GET" })
+                      .then((res) => res.json())
+                      .then((user) => {
+                        user.users.forEach((e) => {
+                          if (e["id"] === comment["user_id"]) {
+                            commentImg.src = e["image_url"];
+                            comName.textContent = e["username"];
+                          }
+                        });
+                      });
                   }
                 });
-              visitorDiv.appendChild(commentImg);
+              visitorDiv.appendChild(imagDiv);
+
+              const pp = document.createElement("div");
+              pp.className = "commenter";
+              const comName = document.createElement("p");
+              comName.textContent = "Name";
+              pp.appendChild(comName);
+              visitorDiv.appendChild(pp);
 
               const para = document.createElement("p");
               para.className = "myComment";
               para.textContent = comment["content"];
-              visitorDiv.appendChild(para);
+              pp.appendChild(para);
             });
           }
         });
