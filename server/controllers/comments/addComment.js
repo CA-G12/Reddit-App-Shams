@@ -2,7 +2,8 @@ const { addCommentQuery } = require("../../database/queries");
 
 const addComment = (req, res) => {
   const { id: post_id } = req.params;
-  const { content, user_id } = req.body;
+  const { content } = req.body;
+  const { id: user_id } = req.token;
 
   addCommentQuery({ content, user_id, post_id }).then((data) => {
     if (data.rowCount) {

@@ -26,7 +26,7 @@ router.get("/single-post/:id", getSinglePost);
 router.delete("/post/delete/:id", verifyToken, deletePost);
 router.get("/user/profile", verifyToken, userProfile);
 
-router.post("/single-post/:id/comments", addComment);
+router.post("/single-post/:id/comments", verifyToken, addComment);
 router.get("/single-post/:id/comments", getPostComments);
 router.delete("/single-post/:id/comments/:id", deleteComment)
 

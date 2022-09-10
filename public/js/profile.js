@@ -1,5 +1,8 @@
 
 const mainContainer = document.querySelector('#posts .container');
+const messageHandler = document.querySelector('.message');
+const messagePara = document.querySelector('.message p');
+const messageSpan = document.querySelector('.message span');
 
 fetch('/user/profile').then(data => data.json()).then(result => result.data).then(userData => profileInfo(userData))
 
@@ -81,7 +84,7 @@ function fetchUserPosts(res) {
       votes.appendChild(upVote);
 
       const votesNum = document.createElement('p');
-      votesNum.textContent = '14.5k';
+      votesNum.textContent = '0';
       votes.appendChild(votesNum);
 
       const downVote = document.createElement('i');
@@ -118,7 +121,23 @@ function fetchUserPosts(res) {
       trash.setAttribute('id', ele.id)
       postPublisher.appendChild(trash);
 
-      trash.addEventListener('click', deletePost)
+      trash.addEventListener('click', () => {
+        fetch(`/post/delete/${ele.id}`, { method: 'DELETE' }).
+          then(data => data.json())
+          .then(data => {
+            messagePara.textContent = "Post deleted successfully";
+            messageSpan.classList.add('vanishspan');
+            messageHandler.classList.add('vanish');
+            messageHandler.style.backgroundColor = '#1b951b';
+            messageSpan.style.backgroundColor = '#13ff13';
+            setTimeout(() => {
+              messageHandler.classList.remove('vanish');
+              messageSpan.classList.remove('vanishspan');
+              bigDiv.style.display = 'none';
+            }, 3000);
+          });
+      });
+
       const content = document.createElement('p');
       content.className = 'content';
       content.textContent = ele['content']
@@ -155,14 +174,15 @@ function fetchUserPosts(res) {
 }
 
 
-function deletePost(e) {
-  const { id } = e.target;
-  fetch(`/post/delete/${id}`, { method: 'DELETE' }).
-    then(data => data.json())
-    .then(data => {
-      window.location.reload()
-    });
-}
+// function deletePost(e) {
+//   const { id } = e.target;
+//   fetch(`/post/delete/${id}`, { method: 'DELETE' }).
+//     then(data => data.json())
+//     .then(data => {
+//       bigDiv.style.display = 'none'
+//       // window.location.reload()
+//     });
+// }
 
 const logoutBtn = document.querySelector('.logout-btn');
 
