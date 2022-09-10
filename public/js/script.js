@@ -29,7 +29,7 @@ function handleDom(data) {
     votes.appendChild(upVote);
 
     const votesNum = document.createElement('p');
-    votesNum.textContent = '14.5k';
+    votesNum.textContent = '0';
     votes.appendChild(votesNum);
 
     const downVote = document.createElement('i');
