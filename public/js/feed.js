@@ -114,7 +114,14 @@ function handleDom(response) {
     postDiv.appendChild(social);
 
     const comment = document.createElement("p");
-    comment.innerHTML = `<i class="fa-regular fa-message"></i> Comment`;
+    fetch(`/single-post/${ele.id}/comments`, {
+      method: "GET",
+      headers: { "Content-type": "application/json" },
+    })
+      .then((result) => result.json())
+      .then((com) => {
+        comment.innerHTML = `<i class="fa-regular fa-message"></i> <span>${com.length}<span> Comments`;
+      })
     const share = document.createElement("p");
     share.innerHTML = `<i class="fa-regular fa-share-from-square"></i> Share`;
     const Save = document.createElement("p");
