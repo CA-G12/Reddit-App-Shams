@@ -59,7 +59,19 @@ postBtn.addEventListener('click', () => {
     })
     popupPanel.style.display = 'none';
   }
-})
+});
+
+// =================== Fetch user profile ==================
+const userProfile = document.querySelector("#user-profile");
+
+userProfile.addEventListener("click", () => {
+  fetch("/user/profile")
+    .then((data) => data.json())
+    .then((result) => {
+      if (result.message) window.location.href = "/profile";
+    });
+});
+
 
 
 
@@ -184,7 +196,7 @@ function fetchUserPosts(res) {
 //     });
 // }
 
-const logoutBtn = document.querySelector('.logout-btn');
+const logoutBtn = document.querySelector('#logout');
 
 const logout = () => {
   fetch('/logout', {
@@ -197,6 +209,25 @@ const logout = () => {
 }
 
 logoutBtn.addEventListener('click', logout);
+
+// =================== drop down eventlistener ==================
+const main = document.querySelector("main");
+const dropDownBtn = document.querySelector("header #drop i");
+const dropDownMenu = document.querySelector("header #drop-down");
+console.log(dropDownBtn);
+
+main.addEventListener("click", () => {
+  dropDownMenu.style.display = "none";
+});
+
+dropDownBtn.addEventListener("click", () => {
+  if (dropDownMenu.style.display === "none") {
+    dropDownMenu.style.display = "flex";
+  } else {
+    dropDownMenu.style.display = "none";
+  }
+});
+// ===================================================================
 
 
 

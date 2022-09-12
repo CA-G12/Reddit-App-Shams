@@ -21,14 +21,25 @@
       <input type="text" placeholder="Search Reddit">
     </div>
     <div class="icons">
-      <img src="" alt="profile-image">
       <div class="users">
-        <a href="/profile">
-          <p></p>
-        </a>
-        <span></span>
+        <div id="drop">
+          <div id="profile-info">
+            <div>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPKevXJxjANQLI8UuioSqliVMY5UZhSFFWonzkGPqjEcE_zQgkzvYpvZJZeJIurcwfZkw&amp;usqp=CAU"
+                alt="">
+            </div>
+            <p></p>
+          </div>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul id="drop-down" style="display: none;">
+          <li id="user-profile"><i class="fa-regular fa-circle-user"></i>profile</li>
+          <li id="setting"><i class="fa-solid fa-gear"></i>settings</li>
+          <li id="logout"><i class="fa-solid fa-arrow-right-to-bracket"></i>log out</li>
+        </ul>
       </div>
-      <button class="logout-btn">Log Out</button>
+
     </div>
   </header>
 

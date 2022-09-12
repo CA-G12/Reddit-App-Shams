@@ -1,5 +1,5 @@
 const mainContainer = document.querySelector("#posts .container");
-const logoutBtn = document.querySelector(".logout-btn");
+const logoutBtn = document.querySelector("#logout");
 
 const messageHandler = document.querySelector(".message");
 const messagePara = document.querySelector(".message p");
@@ -46,7 +46,7 @@ fetch("/home", {
 
 function handleDom(response) {
   response.reverse().forEach((ele) => {
-    // console.log(ele.id);
+    // console.log(ele);
     const bigDiv = document.createElement("div");
     bigDiv.className = "big";
     mainContainer.appendChild(bigDiv);
@@ -448,7 +448,8 @@ postBtn.addEventListener("click", () => {
   }
 });
 
-const userProfile = document.querySelector(".users p");
+// =================== Fetch user profile ==================
+const userProfile = document.querySelector("#profile");
 
 userProfile.addEventListener("click", () => {
   fetch("/user/profile")
@@ -458,4 +459,21 @@ userProfile.addEventListener("click", () => {
     });
 });
 
-/ Fetch comments /;
+// =================== drop down eventlistener ==================
+const main = document.querySelector("main");
+const dropDownBtn = document.querySelector("header #drop i");
+const dropDownMenu = document.querySelector("header #drop-down");
+console.log(dropDownBtn);
+
+main.addEventListener("click", () => {
+  dropDownMenu.style.display = "none";
+});
+
+dropDownBtn.addEventListener("click", () => {
+  if (dropDownMenu.style.display === "none") {
+    dropDownMenu.style.display = "flex";
+  } else {
+    dropDownMenu.style.display = "none";
+  }
+});
+// ===================================================================

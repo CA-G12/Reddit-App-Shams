@@ -2,6 +2,7 @@ const { userProfileQuery } = require("../../database/queries");
 
 const userProfile = (req, res) => {
   const { id } = req.token;
+
   userProfileQuery(id).then(data => {
     res.status(201).json({
       statusCode: 201,
