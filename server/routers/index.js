@@ -21,9 +21,12 @@ router.post("/signin", signIn);
 router.get("/logout", logout);
 
 router.get("/home", getAllPosts);
+
 router.post("/post/add-post", verifyToken, addPost);
 router.get("/post/get-post", verifyToken, getUSerPost);
-router.get("/single-post/:id", getSinglePost);
+router.get("/post/get-post/:idParams", verifyToken, getUSerPost);
+
+router.get("/single-post/:id", verifyToken, getSinglePost);
 router.delete("/post/delete/:id", verifyToken, deletePost);
 router.get("/user/profile", verifyToken, userProfile);
 
